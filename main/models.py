@@ -47,7 +47,7 @@ class UserAnswer(models.Model):
 
 class Answer(models.Model):
     answer_id = models.IntegerField(primary_key=True, auto_created=True)
-    answer_text = models.CharField()
+    answer_text = models.CharField(max_length=300)
     question_id = models.ForeignKey('Question', on_delete=models.CASCADE)
     is_correct = models.BooleanField()
 
