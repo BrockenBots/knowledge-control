@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from main.views import AllUserTestAPIView, AuthorizationUserAPIView, TestAPIView, PushResultAPIView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/user/auth', AuthorizationUserAPIView.as_view()),
+    path('api/v1/test/test_cat/', AllUserTestAPIView.as_view()),
+    path('api/v1/test/test_cat/id/', TestAPIView.as_view()),
+    path('api/v1/test/test_cat/id/result/', PushResultAPIView.as_view()),
 ]
