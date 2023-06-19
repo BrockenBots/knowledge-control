@@ -1,15 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-# class Admin(models.Model):
-#     name = models.CharField(max_length=80)
-#
-#     class Meta:
-#         verbose_name = 'Администратор'
-#         verbose_name_plural = 'Администраторы'
-
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.PROTECT)
@@ -32,16 +23,6 @@ class Category(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
 
-
-# class UserAnswer(models.Model):
-#     user_id = models.ForeignKey('User', on_delete=models.CASCADE)
-#     test_id = models.ForeignKey('Test', on_delete=models.CASCADE)
-#     question_id = models.ForeignKey('Question', on_delete=models.CASCADE)
-#     answer_id = models.ForeignKey('Answer', on_delete=models.PROTECT)
-#
-#     class Meta:
-#         verbose_name = 'Ответ пользователя'
-#         verbose_name_plural = 'Ответы пользователей'
 
 class UserResult(models.Model):
     user = models.ForeignKey('Profile', on_delete=models.CASCADE)
